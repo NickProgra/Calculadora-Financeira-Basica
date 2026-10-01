@@ -1,60 +1,60 @@
-# 📈 Calculadora Financeira em Python
+# 📈 Financial Calculator in Python
 
-Uma aplicação interativa de console desenvolvida em **Python** para auxílio em cálculos financeiros e operações matemáticas essenciais. O projeto conta com arquitetura modular, validações de entrada, tratamento de exceções e persistência de dados local em arquivo `.txt`.
-
----
-
-## 🚀 Funcionalidades
-
-- **Juros Simples:** Cálculo do montante e juros acumulados com base em capital, taxa e tempo.
-- **Juros Compostos:** Cálculo de rendimento com juros sobre juros para análises de investimentos ou empréstimos.
-- **Desconto à Vista:** Aplicação de porcentagens de desconto sobre o valor inicial.
-- **Acréscimo Percentual:** Aumento percentual sobre um preço ou valor de referência.
-- **Operações Aritméticas Básicas:** Soma, subtração, multiplicação e divisão (com proteção contra divisão por zero).
-- **Histórico de Operações:** Leitura e gravação de relatórios de cálculos em disco rígido (`historico.txt`).
-- **Gestão de Dados:** Opção para exclusão e limpeza completa do histórico armazenado.
+An interactive console-based application developed in **Python** to assist with financial calculations and core mathematical operations. The project features a modular architecture, input validation, exception handling, and local data persistence via `.txt` file logging.
 
 ---
 
-## 🛠️ Tecnologias e Conceitos Aplicados
+## 🚀 Features
+
+- **Simple Interest:** Calculates accumulated interest and total amount based on principal, rate, and time.
+- **Compound Interest:** Calculates compound returns over time for investment or loan analysis.
+- **Cash Discount:** Applies percentage discounts to initial price values.
+- **Percentage Increase:** Adds percentage markups to a base price or value.
+- **Basic Arithmetic Operations:** Addition, subtraction, multiplication, and division (with built-in division-by-zero protection).
+- **Operation History:** Saves and reads calculation logs from a persistent file (`historico.txt`).
+- **Data Management:** Option to clear and permanently wipe the saved operation history.
+
+---
+
+## 🛠️ Technologies & Concepts Applied
 
 - **Python 3.x**
-- **Estruturas de Controle:** Loops (`while`) para execução contínua do menu e seleções (`if/elif/else`).
-- **Modularização:** Encapsulamento de regras de negócio em funções exclusivas (`def`).
-- **Tratamento de Exceções:** Blocos `try/except` para impedir falhas de execução por entradas inválidas de dados (`ValueError`).
-- **Manipulação de Arquivos (I/O):** Leitura (`r`), gravação (`a`) e manipulação de arquivos no sistema operacional via módulo nativo `os`.
-- **Boas Práticas de Código:** Utilização da convenção `if __name__ == "__main__":` para controle de fluxo de execução.
+- **Control Flow:** `while` loops for continuous menu navigation and decision-making via `if/elif/else`.
+- **Modular Design:** Business logic encapsulated into dedicated reusable functions (`def`).
+- **Exception Handling:** `try/except` blocks preventing application crashes from invalid user inputs (`ValueError`).
+- **File I/O:** Reading (`r`), appending (`a`), and file management using the native `os` module.
+- **Python Best Practices:** Execution flow controlled via `if __name__ == "__main__":`.
 
 ---
 
-## 📋 Estrutura e Explicação das Funções
+## 📋 Structure & Function Overview
 
-### 1. Módulo de Persistência e Sistema
-* `salvar_no_historico(texto)`: Recebe uma string formatada contendo o resumo da operação realizada e grava uma nova linha no arquivo `historico.txt`.
-* `exibir_historico()`: Abre o arquivo `historico.txt`, realiza a leitura linha a linha e exibe os registros formatados no console.
-* `limpar_historico()`: Verifica a existência do arquivo `historico.txt` através da biblioteca `os` e o remove do sistema.
-* `pedir_numero_positivo(mensagem)`: Função utilitária com loop de validação que garante o recebimento de valores numéricos estritamente maiores que zero.
+### 1. Persistence & System Module
+* `salvar_no_historico(texto)`: Receives a formatted summary string and appends a new entry to `historico.txt`.
+* `exibir_historico()`: Reads `historico.txt` line by line and displays formatted logs in the console.
+* `limpar_historico()`: Checks for `historico.txt` using the `os` library and deletes it from the disk.
+* `pedir_numero_positivo(mensagem)`: Utility function with a validation loop to enforce strictly positive numeric inputs.
 
-### 2. Módulo de Cálculos Financeiros
-* `calcular_juros_simples(capital, taxa, tempo)`: Aplica a fórmula $J = C \times i \times t$ e retorna os juros e o montante final.
-* `calcular_juros_compostos(capital, taxa, tempo)`: Aplica a fórmula $M = C \times (1 + i)^t$ e retorna os juros acumulados e o montante final.
-* `calcular_desconto(preco, porcentagem)`: Calcula o abatimento e o valor final com desconto.
-* `calcular_acrescimo(preco, porcentagem)`: Calcula o valor do acréscimo e o valor final atualizado.
+### 2. Financial Calculation Module
+* `calcular_juros_simples(capital, taxa, tempo)`: Applies $J = C \times i \times t$ and returns interest and final amount.
+* `calcular_juros_compostos(capital, taxa, tempo)`: Applies $M = C \times (1 + i)^t$ and returns accrued interest and final total.
+* `calcular_desconto(preco, porcentagem)`: Calculates discount amount and final discounted price.
+* `calcular_acrescimo(preco, porcentagem)`: Calculates price increase amount and updated total price.
 
-### 3. Módulo de Operações Aritméticas
-* `somar(valor1, valor2)`: Retorna a adição entre dois valores.
-* `subtrair(valor1, valor2)`: Retorna a diferença entre dois valores.
-* `multiplicar(valor1, valor2)`: Retorna o produto entre dois valores.
-* `dividir(valor1, valor2)`: Retorna a divisão de dois valores, contendo validação interna para evitar divisão por zero.
+### 3. Arithmetic Operations Module
+* `somar(valor1, valor2)`: Returns the sum of two values.
+* `subtrair(valor1, valor2)`: Returns the difference between two values.
+* `multiplicar(valor1, valor2)`: Returns the product of two values.
+* `dividir(valor1, valor2)`: Returns the division result, with validation against division by zero.
 
-### 4. Controle da Aplicação
-* `menu_principal()`: Gerencia a interface de usuário, exibição do menu interativo, captura de seleções e direcionamento do fluxo do programa.
+### 4. Application Control
+* `menu_principal()`: Handles the user interface, interactive menu options, input collection, and overall flow control.
 
 ---
 
-## 📦 Como Executar o Projeto
+## 📦 How to Run
 
-1. Certifique-se de ter o **Python 3.x** instalado em sua máquina.
-2. Clone este repositório ou baixe o arquivo `.py`:
+1. Ensure you have **Python 3.x** installed.
+2. Clone this repository or download the source script:
    ```bash
-   git clone [https://github.com/seu-usuario/nome-do-repositorio.git](https://github.com/seu-usuario/nome-do-repositorio.git)
+   git clone [https://github.com/your-username/your-repository-name.git](https://github.com/your-username/your-repository-name.git)
